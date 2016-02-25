@@ -1,0 +1,1403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sts | </title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="theme/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+        
+     .overlay,
+.overlay-wrapper > .overlay,
+ .loading-img,
+.overlay-wrapper > .loading-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.overlay,
+.overlay-wrapper .overlay {
+  z-index: 50;
+ 
+  border-radius: 3px;
+}
+.overlay > .fa,
+.overlay-wrapper .overlay > .fa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -15px;
+  margin-top: -15px;
+  color: #000;
+  font-size: 30px;
+}
+.overlay.dark,
+.overlay-wrapper .overlay.dark {
+ 
+}
+
+ .ov {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        right: auto;
+        left: auto;
+        display: block;
+        z-index: 1;
+      }
+      .overs {
+        background: transparent !important;
+      }
+    .over{
+       background-color: #000;
+    filter: alpha(opacity=50);
+    opacity: .5;}
+  </style>
+   
+    <link href="theme/fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="theme/css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom styling plus plugins -->
+    <link href="theme/css/custom.css" rel="stylesheet">
+    <link href="theme/css/icheck/flat/green.css" rel="stylesheet">
+    <link href="theme/css/datatables/tools/css/dataTables.tableTools.css" rel="stylesheet">
+      <script src="jscustom/OngoingExams.js"></script>
+      <link href="theme/css/select/select2.min.css" rel="stylesheet">
+    
+    <script src="theme/js/jquery.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
+   
+    <!--[if lt IE 9]>
+        <script src="../assets/js/ie8-responsive-file-warning.js"></script>
+        <![endif]-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+
+<body class="nav-md">
+
+    <div class="container body">
+
+
+        <div class="main_container">
+
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="OngoingExams.html" class="site_title"><i class="fa fa-graduation-cap"></i> <span>Admin Starks!</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+ 
+                    <!-- menu prile quick info -->
+                    <div class="profile">
+                        <div class="profile_pic">
+                            <img id="fullImage" src="theme/images/user.png" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <h2 id="name">User</h2>
+                        </div>
+                    </div>
+                    <!-- /menu prile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+                        
+                        <!-- profile modal -->
+                             <div class="modal fade bs-example-modal-lg" id="profile" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">User Profile</h4>
+                                            </div>
+                                            <div class="">
+                                                 <div id="wizard_verticle" class="form_wizard wizard_verticle">
+                                        <ul class="list-unstyled wizard_steps">
+                                            <li>
+                                                <a href="#step-11">
+                                                    <span class="step_no">1</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-22">
+                                                    <span class="step_no">2</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-33">
+                                                    <span class="step_no">3</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#step-44">
+                                                    <span class="step_no">4</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                        <div id="step-11">
+                                            <h2 class="StepTitle">Step 1 Content</h2>
+                                            <form style="height: 330px" class="form-horizontal form-label-left">
+
+                                                <span class="section">Personal Info</span>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3" for="first-name">First Name <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <input type="text" id="firstNameF" placeholder="First name" required="required" class="form-control col-md-7 col-xs-12">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3" for="last-name">Last Name <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <input type="text" id="lastNameF" name="last-name" placeholder="Last name" required="required" class="form-control col-md-7 col-xs-12">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3">Other names </label>
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <input id="middleNameF" placeholder="Other names" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3">Initials<span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <select id="initials" placeholder="Select an initial" class="form-control">
+                                                             <option value="">--</option>
+                                                            <option value="Prof">Professor</option>
+                                                               <option value="Dr">Doctor</option>
+                                                                  <option value="Mrs">Mrs</option>
+                                                                     <option value="Mr">Mr</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3">Gender</label>
+                                                    <div class="col-md-6 col-sm-6">
+                                                       
+                                                            <label class="radio-inline" data-toggle-class="radio" data-toggle-passive-class="radio">
+                                                                <input type="radio" id="gender1"  name="gender" class="flat"  value="m"> &nbsp; Male &nbsp;
+                                                            </label>
+                                                            <label class="radio-inline" data-toggle-class="radio" data-toggle-passive-class="radio">
+                                                                <input type="radio" id="gender2" name="gender"  class="flat" value="f" > Female
+                                                            </label>
+                                                       
+                                                    </div>
+                                                </div>
+  
+                                            </form>
+                                        </div>
+                                        <div id="step-22">
+                                            <h2 class="StepTitle">Step 2 Content</h2>
+                                            <form style="height: 450px" class="form-horizontal ">
+
+                                                <span class="section">Contact Info</span>
+
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3" for="first-name">Email <span class="required">*</span>
+                                                     </label>
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <input placeholder="Email" type="email" id="email2" required="required" class="form-control col-md-7 col-xs-12">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3" for="last-name">Contact Number <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <input type="text" placeholder="Contact number" id="contact" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3">Address</label>
+                                                    <div class="col-md-6 col-sm-6">
+                                                         <textarea id="address" placeholder="Address " class="form-control" cols="30" rows="3"></textarea>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3">Other Number</label>
+                                                     <div class="col-md-6 col-sm-6">
+                                                        <input type="text" id="contact2" placeholder="Other numbers" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="middle-name" class="control-label col-md-3 col-sm-3">Other Address</label>
+                                                    <div class="col-md-6 col-sm-6">
+                                                         <textarea id="address2" placeholder="Other Addresses " class="form-control" cols="5" rows="3"></textarea>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                        <div id="step-33">
+                                            <h2 class="StepTitle">Step 3 Profile Picture</h2>
+                                            <p>Upload a picture to replace your existing photo or the default avatar
+                                            </p>
+                                           <form method="POST" id="formTutor" enctype="multipart/form-data" class="form-horizontal form-label-left input_mask">
+                                         
+                                          <div class="col-md-4 col-md-5-12 col-xs-12 form-group has-feedback">
+                                             
+                                            <img alt="upload photo" id="sClick" src="theme/images/user.png" width="200" height="200"/>
+                                            <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            <input id="LClick" class="btn" name="file" type="file"/>
+                                            <input type="text" style="display: none;" name="url" id="urlP" />
+                                             <input type="text" style="display: none;" name="name" id="nameP" />
+                                        </div>
+                                           </form>
+                                             <div class="form-group">
+                                                   
+                                                    <div class="col-md-6 col-sm-6">
+                                                        <textarea id="comment" placeholder="Brief description about self" class="form-control" cols="50" rows="3"></textarea>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                        <div id="step-44">
+                                            <h2 class="StepTitle">Step 4 Tutorial</h2>
+                                            
+                                              
+                                            <p>
+                                                Congratulations you have successfully completed your registration, you have full access to all features... Click <strong id="submit" class="green links">Post below </strong> to save information.
+                                             </p>
+                                            <p>Watch our tutotial videos on basic start up <a class="blue links" href="starks">Watch video</a>
+                                            </p>
+                                             <p>
+                                               Contact us on help or issues with setting questions <a class="blue links" href="starks">Contact us</a>
+                                            </p>
+                                            
+                                            <p>
+                                                more story on any thing <a class="blue links" href="starks">Watch video</a>
+                                             </p>
+                                              <p>Watch our tutotial videos on basic start up <a class="blue links" href="starks">Watch video</a>
+                                            </p>
+                                             <p>
+                                               Contact us on help or issues with setting questions <a class="blue links" href="starks">Contact us</a>
+                                            </p>
+                                            
+                                            <p>
+                                                more story on any thing <a class="blue links" href="starks">Watch video</a>
+                                             </p>
+                                              <p>Watch our tutotial videos on basic start up <a class="blue links" href="starks">Watch video</a>
+                                            </p>
+                                             <p>
+                                               Contact us on help or issues with setting questions <a class="blue links" href="starks">Contact us</a>
+                                            </p>
+                                            
+                                            <p>
+                                                more story on any thing <a class="blue links" href="starks">Watch video</a>
+                                             </p>
+                                        </div>
+                                    </div>
+
+                                                
+                                             </div>
+                                           
+                                        </div>
+                                    </div>
+                                            </div>
+                        
+                        <!-- end profile -->
+                        
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li><a><i class="fa fa-graduation-cap"></i> Exams <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                           <li><a  id="addExam">Add new Exam</a>
+                                              <div id="aE" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                 
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Add exam</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                               
+                                <div class="x_content">
+                                    <br />
+                                    <form id="isForm" class="form-horizontal form-label-left input_mask">
+                                      <div class="form-group">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                            <select  class="form-control has-feedback-left" id="examTag" >
+                                              
+                                            </select>
+                                            <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                      </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                          <input id="dateexam"  class="date-picker form-control col-md-7 col-xs-12"  required="required" type="date">
+                                            <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                        
+                                        
+
+                                        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                            <input id="time" type="time" class="form-control has-feedback-left"  >
+                                            <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+
+                                     
+                                        
+                                         <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Duration in minutes</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input id="duration" type="number" class="form-control" placeholder="Enter duration in miniutes">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Amount of questions</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input id="amount" type="number" class="form-control" placeholder="Enter amount of questions you want candidates to view">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                               <label class="control-label col-md-3 col-sm-3 col-xs-12">FeedBack</label>
+                                         
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <textarea id="feedBack" class="form-control" placeholder="Please post feedback to students" rows="2" cols="60"></textarea>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                <button type="button" id="closeM" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+                                                <button type="button" id="sendForm" class="btn btn-success">Submit</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                     <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#birthday').daterangepicker({
+                                singleDatePicker: true,
+                                calender_style: "picker_4"
+                            }, function (start, end, label) {
+                                console.log(start.toISOString(), end.toISOString(), label);
+                            });
+                        });
+                    </script>
+
+                                </div>
+                             
+                                            <div class="modal-footer">
+                                              
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                        </li>
+                                        <li><a  >Database</a>
+                                        <li><a id="createExams" >Create Exam</a>
+                                             <div class="modal fade bs-example-modal-sm" id="cE" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Create Exam</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                              
+                                                <form>
+                                                     <div class=" form-group has-feedback">
+                                            <input type="text"   class="form-control has-feedback-left" id="subjectId" >
+                                            <span class="fa fa-book form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                                    <div class=" form-group has-feedback">
+                                                        <select id="typeId" class="form-control">
+                                                            <option value="2">Single response</option>
+                                                             <option value="3">Multiple response</option>
+                                                              <option value="4">Fill in the gap</option>
+                                                               <option value="5">Blank Gaps</option>
+                                                                
+                                                        </select>
+                                                
+                                        </div>
+                                                    <div class=" form-group has-feedback">
+                                            <input type="text" readonly=""  class="form-control has-feedback-left " id="user" >
+                                            <span class="fa fa-user form-control-feedback left " aria-hidden="true"></span>
+                                        </div>
+                                                     
+                                                </form>
+                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default left" data-dismiss="modal">Cancel</button>
+                                                <button id="sendExam" type="button" class="btn btn-primary right">Save</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                            
+                                        </div>
+                                
+                                        </li>
+                                       
+                                     </ul>
+                                </li>
+                                <li><a><i class="fa fa-clock-o"></i> Exam Sessions <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a id="showEdit" >Edit candidate time</a>
+                                            <div id="sE" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Edit Time</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    
+                                                    <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Candidate Number</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select id="candidateTime" class="form-control">
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                                    <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Candidate Number</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input type="number" class="form-control" id="studentTime" />
+                                            </div>
+                                        </div>
+                                                    
+                                                    
+                                                </form>
+                                                    
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" id="canIncrease" data-dismiss="modal"   class="btn btn-primary">Save changes</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                            
+                                        </li>
+                                        <li><a id="editExam">Edit exam time</a>
+                                                   <div id="eE" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Edit exam Time</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Exam</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select id="examTime" class="form-control">
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                                       <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Edit time</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <input type="number" id="timeValue" class="form-control" />
+                                            </div>
+                                        </div>
+                                                    
+                                                </form>
+                                                    
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" id="examIncrease" data-dismiss="modal" class="btn btn-primary">Save changes</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                        </li>
+                                        <li><a id="cancelSession" >Cancel session</a>
+                                                         <div id="cS" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Cancel Session</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                             
+                                                    
+                                                    <div class="form-group">
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Candidate Number</label>
+                                            <div class="col-md-9 col-sm-9 col-xs-12">
+                                                <select id="candidateCan" class="form-control">
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                                    
+                                                
+                                        </div>
+                                             
+                                                    
+                                                </form>
+                                                    
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <input  type="button" id="canSess" data-dismiss="modal" value="Save changes" class="btn btn-primary"/>
+                                            </div>
+  
+                                        </div>
+                                    </div>
+                                </div>
+                                        </li>
+                                       
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-user"></i> Students <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                      
+                                        <li><a id="viewStudents">View Students</a>
+                                            <div id="vS" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                             <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">View Students</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                               
+                                <div  class="x_content">
+                                  <table style="overflow: scroll; height: 300px;"  class="table table-striped responsive-utilities jambo_table">
+                                        <thead>
+                                            <tr class="headings">
+                                                <th>
+                                                    <input type="checkbox" class="tableflat">
+                                                </th>
+                                                <th style="display: none;">Index</th>
+                                                <th>Last Name</th>
+                                                <th>First Name</th>
+                                                <th>Middle Name</th>
+                                              
+                                                <th>Student Number</th>
+                                                <th>Gender</th>
+                                                <th class=" no-link last"><span class="nobr">Action</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                      
+                                        <tbody id="studentTable">
+                                            <tr class="even pointer">
+                                                <td class="a-center ">
+                                                    <input type="checkbox" class="tableflat">
+                                                </td>
+                                                <td class=" ">121000040</td>
+                                                <td class=" ">May 23, 2014 11:47:56 PM </td>
+                                                <td class=" ">121000210 <i class="success fa fa-long-arrow-up"></i>
+                                                </td>
+                                                <td class=" ">John Blank L</td>
+                                                <td class=" ">Paid</td>
+                                                <td class="a-right a-right ">$7.45</td>
+                                                <td class=" last"><a href="#">View</a>
+                                                </td>
+                                            </tr>
+                                           <tr ng-repeat="x in data ">
+                                               <td>{{ $index + 1 }}</td>
+                                               <td>{{x.subject}}</td>
+                                               <td>{{x.std}}</td>
+                                               <td>{{x.stt}}</td>
+                                               <td>{{x.candidates}}</td>
+                                               <td>{{x.duration}}</td>
+                                           </tr>
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                                                <div>
+                                                    <div style="" class="">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            
+                                            <div class="btn-group" id="studentPg">
+                                                <button class="btn btn-info" type="button">1</button>
+                                                <button class="btn btn-info " type="button">2</button>
+                                                <button class="btn btn-info" type="button">3</button>
+                                                <button class="btn btn-info" type="button">4</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                </div>
+                              
+                                            <div class="modal-footer">
+                                              
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                            </div>
+                                        </li>
+                                        <li><a id="regStudent">Register Student</a>
+                                            <div id="rS" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                                             <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Add student</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                               
+                                <div class="x_content">
+                                    <br />
+                                    <form method="POST" id="formStudent" enctype="multipart/form-data" class="form-horizontal form-label-left input_mask">
+                                      
+                                        <div class="col-md-4 col-md-5-12 col-xs-12 form-group has-feedback">
+                                           
+                                            <img alt="upload photo" id="iClick" src="theme/images/user.png" width="200" height="200"/>
+                                            <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
+                                            <input id="fClick" class="btn" name="file" type="file"/>
+                                        </div>
+                                          
+                                      
+                                        <div class="col-md-6 col-xs-12 form-group has-feedback">
+                                            <input type="text" readonly=""  class="form-control" id="candidateNumber" >
+                                            <span class="fa fa-lock form-control-feedback " aria-hidden="true"></span>
+                                        </div>
+                                        
+                                          <div class="col-md-6 col-xs-12 form-group has-feedback">
+                                            <input type="text" readonly="" name="institution" class="form-control" id="institution" >
+                                            <span class="fa fa-lock form-control-feedback " aria-hidden="true"></span>
+                                        </div>
+
+                                        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                             
+                                            <input type="text" required placeholder="First Name" name="firstName" class="form-control has-feedback-left" id="firstName" >
+                                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                             
+                                              <input type="text" placeholder="Last Name" name="lastName" class="form-control has-feedback-left" id="lastName" >
+                                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                          <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                             
+                                              <input type="text" name="middleName" required placeholder="Middle Name" class="form-control has-feedback-left" id="middleName" >
+                                            <span class="fa fa-user-md form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                        
+                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                             
+                                             <input type="email" name="email" required placeholder="Email" class="form-control has-feedback-left" id="email" >
+                                            <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                           <div style="display:none;" class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                              
+                                             <input type="text" name="url" required placeholder="Email" class="form-control has-feedback-left" id="url" >
+                                            <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                        <div class="col-md-4 col-md-5-12 col-xs-12 form-group has-feedback"></div>
+                                        
+                                         <div class="col-md-6 col-sm-6 col-xs-12  form-group has-feedback">
+                                             
+                                             <input type="password" name="password" required placeholder="Enter password" class="form-control has-feedback-left" id="password" >
+                                            <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
+                                            <br/>  
+                                            Male:
+                                            <input type="radio"  class="flat form-control has-feedback-left" name="gender" id="genderM" value="M"  required /> Female:
+                                            <input type="radio" class="flat form-control" name="gender" id="genderF" value="F" />
+                                            
+                                         </div>
+
+                                     <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                            </div>
+                                        <div class="form-group"></div>
+                                         
+                                        
+                                        <div class="ln_solid"></div>
+                                        <div class="form-group">
+                                            <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                                <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
+                                                <button type="button" id="submitS" class="btn btn-success">Submit</button>
+                                            </div>
+                                        </div>
+   
+                                    </form>
+                                     <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('#birthday').daterangepicker({
+                                singleDatePicker: true,
+                                calender_style: "picker_4"
+                            }, function (start, end, label) {
+                                console.log(start.toISOString(), end.toISOString(), label);
+                            });
+                        });
+                    </script>
+
+                                </div>
+                             
+                                            <div class="modal-footer">
+                                              
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-table"></i> Reports<span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a  id="reportSheet" >Exam_sheet</a>
+                                            <div class="modal fade bs-example-modal-lg"  id="reportS" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Result Sheet</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="x_content">
+                                              <div class="form-group">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                                            <select  class="form-control has-feedback-left" id="reports" >
+                                              
+                                            </select>
+                                            <span class="fa fa-table form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+                                      </div>
+                                 
+                                    <!-- start project list -->
+                                    <table class="table table-striped projects">
+                                        <thead>
+                                            <tr>
+                                                <th style="width: 1%">S/N</th>
+                                                <th style="width: 20%">Matric</th>
+                                                <th style="width: 20%">Name</th>
+                                                <th>Score</th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody id="reportBody">
+                                        </tbody>
+                                    </table>
+                                    
+                                  
+                                                </div>
+                                                </div>
+                                            <div class="modal-footer">
+                                                </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                        </li>
+                                        <li><a >General Report</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-bar-chart-o"></i> Miscellenous <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a >Upload data</a>
+                                        </li>
+                                        <li><a href="candidateLog.html" >Candidate Login</a>
+                                        </li>
+                                        <li><a href="Classroom.html">Schedule Classroom</a>
+                                        </li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    <!-- /sidebar menu -->
+
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Version not supported">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip"   data-placement="top" title="FullScreen">
+                             <span id="menu_Open"  class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" href="LockScreen.html" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                         <a id="logout2" data-toggle="tooltip" data-placement="top" title="Logout">
+                            <span class="glyphicon glyphicon-off"  aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+
+                <div class="nav_menu">
+                    <nav class="" role="navigation">
+                        <div class="nav toggle">
+                            <a style="cursor: pointer" id="menu_toggle"><i class="fa fa-bars"></i></a>
+                           
+                          
+                          
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="theme/images/user.png" width="128" height="128" alt="" id="smallImage"><span id="pName">User</span>
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                                    <li><a id="getProfile" href="javascript:;">  Profile</a>
+                                      
+                                        
+                                    </li>
+                                    <li>
+                                        
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">Help</a>
+                                    </li>
+                                     <li><a id="logout" href="javascript:;"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                            <a  href="javascript:;" id="presentClicked" class="dropdown-toggle info-number" data-toggle="tooltip" data-placement="bottom" title="Logged in candidates "  aria-expanded="false">
+                                    <i class="fa fa-users"></i>
+                                    <span id="present" class="badge bg-green">0</span>
+                                     <div class="modal fade bs-example-modal-lg" id="pres" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Total Logged in candidates</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                            </div>
+                            </a> </li>
+                            
+                            <li>
+                            <a  href="javascript:;" id="submitC" class="dropdown-toggle info-number" data-toggle="tooltip" data-placement="bottom" title="Logged out candidates"  aria-expanded="false" aria-expanded="false">
+                                    <i class="fa fa-lock"></i>
+                                    <span id="submitted" class="badge bg-red">0</span>
+                                     <div class="modal fade bs-example-modal-lg" id="subs" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Total Submitted Candidate</h4>
+                                            </div>
+                                            <div id="subBody" class="modal-body">
+                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                            </div>
+                            </a> </li>
+                            <li>
+                            <a  href="javascript:;" id="totC" class="dropdown-toggle info-number" data-toggle="tooltip" data-placement="bottom" title="Scheduled candidates"  aria-expanded="false" aria-expanded="false">
+                                    <i class="fa fa-user"></i>
+                                    <span class="badge bg-yellow" id="scheduled">0</span>
+                                     <div class="modal fade bs-example-modal-lg" id="totS" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Total Scheduled Candidates</h4>
+                                            </div>
+                                            <div id="totB" class="modal-body">
+                                             </div>
+                                            <div class="modal-footer">
+                                              
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                            </div>
+                            </a> </li>
+                          
+                          <li>
+                            <a  href="javascript:;" class="dropdown-toggle info-number" data-toggle="tooltip" data-placement="bottom" title="percentage per session"  aria-expanded="false" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-pie-chart"></i>
+                                    <span id="attendance" class="badge bg-blue-sky">7</span>
+                            </a> </li>
+                            
+                             <li>
+                            <a  href="javascript:;" class="dropdown-toggle info-number" data-toggle="tooltip" data-placement="bottom" title="allow candidates register courses"  aria-expanded="false" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-key"></i>
+                                    <span id="signIn" class="badge bg-green">false</span>
+                            </a> </li>
+                           
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+            <!-- /top navigation -->
+
+            <!-- page content -->
+            <div class="right_col" style="" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="title_left">
+                            <h3>
+                    Session
+                    <small>
+                       Handle exam sessions
+                    </small>
+                </h3>
+                        </div>
+
+                        <div class="title_right">
+                            <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                            <button  class="btn btn-default" type="button">Search</button>
+                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <div class="row">
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                     <h2>Active exams <small><span style="color:white" id="totalExams" class="badge bg-green">6</span></small> </h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a href="#"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                           
+                                        </li>
+                                        <li><a href="#"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                  <div  id='next'  class="fa-spin overlay  "><i class="fa fa-spinner"> </i></div>
+                                <div ng-app="myApp" ng-controller="ongoingCtrl" class="x_content">
+                                    
+                                   
+                                    <table style="overflow: scroll; height: 300px;"  class="table table-striped responsive-utilities jambo_table">
+                                        <thead>
+                                            <tr class="headings">
+                                               
+                                                <th >S/N</th>
+                                                <th>Subject </th>
+                                                <th>Date</th>
+                                                <th>Start time</th>
+                                             
+                                                <th>Candidates </th>
+                                                <th>Duration</th>
+                                                
+                                                <th class=" no-link last"><span class="nobr">Action</span>
+                                                </th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="tableBody">
+                                            
+                                        </tbody>
+
+                                    </table>
+                                      <div>
+                                                    <div style="" class="">
+                                                          <h3 id="dataHide"> Please Hold on while we retrieve your data</h3>
+                                        <div class="btn-group sts" data-toggle="buttons">
+                                            
+                                            <div class="btn-group sts" id="examPg">
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br />
+                        <br />
+                        <br />
+
+                    </div>
+                </div>
+                    <!-- footer content -->
+                <footer>
+                    <div class="">
+                        <p class="pull-right">Simple testing and record keeping system</a>. |
+                            <span class="lead"> <i class="fa fa-graduation-cap"></i> Starkstech!</span>
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+                    
+                </div>
+                <!-- /page content -->
+                 
+            </div>
+
+        </div>
+
+        <div id="custom_notifications" class="custom-notifications dsp_none">
+            <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+            </ul>
+            <div class="clearfix"></div>
+            <div id="notif-group" class="tabbed_notifications"></div>
+        </div>
+
+        <script src="theme/js/bootstrap.min.js"></script>
+
+        <!-- chart js -->
+        
+        <script src="theme/js/nicescroll/jquery.nicescroll.min.js"></script>
+       <!-- icheck -->
+        <script src="theme/js/icheck/icheck.min.js"></script>
+
+        <script src="theme/js/custom.js"></script>
+<script type="text/javascript" src="theme/js/moment.min2.js"></script>
+        <script type="text/javascript" src="theme/js/datepicker/daterangepicker.js"></script>
+
+        <!-- Datatables -->
+        <script src="theme/js/datatables/js/jquery.dataTables.js"></script>
+        <script src="theme/js/datatables/tools/js/dataTables.tableTools.js"></script>
+        
+          <script type="text/javascript">
+        $(document).ready(function () {
+
+            var cb = function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+                $('#reportrange_right span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
+            }
+
+            var optionSet1 = {
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment(),
+                minDate: '01/01/2012',
+                maxDate: '12/31/2015',
+                dateLimit: {
+                    days: 60
+                },
+                showDropdowns: true,
+                showWeekNumbers: true,
+                timePicker: false,
+                timePickerIncrement: 1,
+                timePicker12Hour: true,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                opens: 'right',
+                buttonClasses: ['btn btn-default'],
+                applyClass: 'btn-small btn-primary',
+                cancelClass: 'btn-small',
+                format: 'MM/DD/YYYY',
+                separator: ' to ',
+                locale: {
+                    applyLabel: 'Submit',
+                    cancelLabel: 'Clear',
+                    fromLabel: 'From',
+                    toLabel: 'To',
+                    customRangeLabel: 'Custom',
+                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    firstDay: 1
+                }
+            };
+
+            $('#reportrange_right span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+            $('#reportrange_right').daterangepicker(optionSet1, cb);
+
+            $('#reportrange_right').on('show.daterangepicker', function () {
+                console.log("show event fired");
+            });
+            $('#reportrange_right').on('hide.daterangepicker', function () {
+                console.log("hide event fired");
+            });
+            $('#reportrange_right').on('apply.daterangepicker', function (ev, picker) {
+                console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+            });
+            $('#reportrange_right').on('cancel.daterangepicker', function (ev, picker) {
+                console.log("cancel event fired");
+            });
+
+            $('#options1').click(function () {
+                $('#reportrange_right').data('daterangepicker').setOptions(optionSet1, cb);
+            });
+
+            $('#options2').click(function () {
+                $('#reportrange_right').data('daterangepicker').setOptions(optionSet2, cb);
+            });
+
+            $('#destroy').click(function () {
+                $('#reportrange_right').data('daterangepicker').remove();
+            });
+
+        });
+    </script>
+    
+    
+    <!-- PNotify -->
+    <script type="text/javascript" src="theme/js/notify/pnotify.core.js"></script>
+    <script type="text/javascript" src="theme/js/notify/pnotify.buttons.js"></script>
+  
+    <script>
+        $(function () {
+            var cnt = 10; //$("#custom_notifications ul.notifications li").length + 1;
+            TabbedNotification = function (options) {
+                var message = "<div id='ntf" + cnt + "' class='text alert-" + options.type + "' style='display:none'><h2><i class='fa fa-bell'></i> " + options.title + "</h2><div class='close'><a href='javascript:;' class='notification_close'><i class='fa fa-close'></i></a></div><p>" + options.text + "</p></div>";
+
+                if (document.getElementById('custom_notifications') == null) {
+                    alert('doesnt exists');
+                } else {
+                    $('#custom_notifications ul.notifications').append("<li><a id='ntlink" + cnt + "' class='alert-" + options.type + "' href='#ntf" + cnt + "'><i class='fa fa-bell animated shake'></i></a></li>");
+                    $('#custom_notifications #notif-group').append(message);
+                    cnt++;
+                    CustomTabs(options);
+                }
+            }
+
+            CustomTabs = function (options) {
+                $('.tabbed_notifications > div').hide();
+                $('.tabbed_notifications > div:first-of-type').show();
+                $('#custom_notifications').removeClass('dsp_none');
+                $('.notifications a').click(function (e) {
+                    e.preventDefault();
+                    var $this = $(this),
+                        tabbed_notifications = '#' + $this.parents('.notifications').data('tabbed_notifications'),
+                        others = $this.closest('li').siblings().children('a'),
+                        target = $this.attr('href');
+                    others.removeClass('active');
+                    $this.addClass('active');
+                    $(tabbed_notifications).children('div').hide();
+                    $(target).show();
+                });
+            }
+
+            CustomTabs();
+
+            var tabid = idname = '';
+            $(document).on('click', '.notification_close', function (e) {
+                idname = $(this).parent().parent().attr("id");
+                tabid = idname.substr(-2);
+                $('#ntf' + tabid).remove();
+                $('#ntlink' + tabid).parent().remove();
+                $('.notifications a').first().addClass('active');
+                $('#notif-group div').first().css('display','block');
+            });
+        })
+    </script>
+    <script type="text/javascript">
+      /*  var permanotice, tooltip, _alert;
+        $(function () {
+            new PNotify({
+                title: "PNotify",
+                type: "dark",
+                text: "Welcome. Try hovering over me. You can click things behind me, because I'm non-blocking.",
+                nonblock: {
+                    nonblock: true
+                },
+                before_close: function (PNotify) {
+                    // You can access the notice's options with this. It is read only.
+                    //PNotify.options.text;
+
+                    // You can change the notice's options after the timer like this:
+                    PNotify.update({
+                        title: PNotify.options.title + " - Enjoy your Stay",
+                        before_close: null
+                    });
+                    PNotify.queueRemove();
+                    return false;
+                }
+            });
+
+        });*/
+    </script>
+    
+    <!-- datepicker -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var cb = function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
+            }
+
+            var optionSet1 = {
+                startDate: moment().subtract(29, 'days'),
+                endDate: moment(),
+                minDate: '01/01/2012',
+                maxDate: '12/31/2017',
+                dateLimit: {
+                    days: 60
+                },
+                showDropdowns: true,
+                showWeekNumbers: true,
+                timePicker: false,
+                timePickerIncrement: 1,
+                timePicker12Hour: true,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                },
+                opens: 'up',
+                buttonClasses: ['btn btn-default'],
+                applyClass: 'btn-small btn-primary',
+                cancelClass: 'btn-small',
+                format: 'MM/DD/YYYY',
+                separator: ' to ',
+                locale: {
+                    applyLabel: 'Submit',
+                    cancelLabel: 'Clear',
+                    fromLabel: 'From',
+                    toLabel: 'To',
+                    customRangeLabel: 'Custom',
+                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    firstDay: 1
+                }
+            };
+            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+            $('#reportrange').daterangepicker(optionSet1, cb);
+            $('#reportrange').on('show.daterangepicker', function () {
+                console.log("show event fired");
+            });
+            $('#reportrange').on('hide.daterangepicker', function () {
+                console.log("hide event fired");
+            });
+            $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
+                console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+            });
+            $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
+                console.log("cancel event fired");
+            });
+            $('#options1').click(function () {
+                $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
+            });
+            $('#options2').click(function () {
+                $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
+            });
+            $('#destroy').click(function () {
+                $('#reportrange').data('daterangepicker').remove();
+            });
+        });
+    </script>
+        <script>
+           $(document).ready(function () {
+            $('#dateexam').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_2",
+                 minDate: '01/01/2016'
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+        });
+        </script>
+        <script type="text/javascript" src="theme/js/wizard/jquery.smartWizard.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Smart Wizard 	
+            $('#wizard').smartWizard();
+
+            function onFinishCallback() {
+              //  $('#wizard').smartWizard('showMessage', 'Finish Clicked');
+               
+            }
+        });
+
+        $(document).ready(function () {
+            // Smart Wizard	
+            $('#wizard_verticle').smartWizard({
+                transitionEffect: 'slide',
+                 onFinish: function(){
+                       specialSubmitWizardOngoing();
+                }
+            });
+
+        });
+    </script>
+</body>
+
+</html>

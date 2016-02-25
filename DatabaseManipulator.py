@@ -79,8 +79,9 @@ class DataManipulate(object):
 
 	def activityLog(self,item):
 		print("in activity")
-		#import pdb; pdb.set_trace()
-		cursor = self.connection.execute("SELECT * FROM log_table WHERE PRODUCTID="+itemname+" ")
+		itemid = ("%"+item+"%",)
+		
+		cursor = self.connection.execute("SELECT * FROM log_table WHERE PRODUCTID LIKE ? ",itemid)
 		activity =[]
 		for row in cursor:
 			activity.append(row[0])

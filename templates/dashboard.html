@@ -14,7 +14,7 @@
 
     <link href="{{ url_for('static', filename='theme/css/bootstrap.min.css') }}"  type="text/css" rel="stylesheet">
 
-
+ <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     
     <link href="{{ url_for('static', filename='theme/fonts/css/font-awesome.min.css') }}"    type="text/css" rel="stylesheet" >
     
@@ -108,18 +108,18 @@
                 <div class="left_col scroll-view">
 
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentellela Alela!</span></a>
+                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Maintenance tracker!</span></a>
                     </div>
                     <div class="clearfix"></div>
 
                     <!-- menu prile quick info -->
                     <div class="profile">
                         <div class="profile_pic">
-                            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                            <img src="static/theme/images/user.png" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
-                            <h2>Anthony Fernando</h2>
+                            <h2 id="welcome">User</h2>
                         </div>
                     </div>
                     <!-- /menu prile quick info -->
@@ -142,7 +142,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
+                                <li id="userlist"><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li><a id="au">Add user</a>
                                            <!-- add user -->
@@ -156,14 +156,7 @@
                                         </li>
                                        
                                     </ul>
-                                    <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
-                                        <li><a href="form.html">General Form</a>
-                                        </li>
-                                        <li><a href="form_advanced.html">Advanced Components</a>
-                                        </li>
-                                       
-                                    </ul>
+                                   
                                
                             
                         </div>
@@ -202,7 +195,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="images/img.jpg" alt="">John Doe
+                                    <img src="/static/theme/images/user.png" alt=""><span id="loggIn"></span>
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
@@ -223,7 +216,7 @@
                                     <li>
                                         <a>
                                             <span class="image">
-                                        <img src="images/img.jpg" alt="Profile Image" />
+                                        <img src="images/user.png" alt="Profile Image" />
                                     </span>
                                             <span>
                                         <span>John Smith</span>
@@ -347,10 +340,56 @@
 
 
 
+
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" id="userModal" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id="textModals"></div>
+                                            </div>
+                                                
+                                            <div class="modal-footer">
+                                                
+                                                <button type="button" data-dismiss="modal"  class="btn btn-primary">Ok </button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
 <!--- test table---->
 
 
+<div class="modal fade bs-example-modal-sm" tabindex="-1" id="smallModal" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
 
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel2">Modal title</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div id="textModal"></div>
+                                            </div>
+                                                <textarea id="sendNote" rows="3" cols="3"></textarea>
+                                            <div class="modal-footer">
+                                                <button type="button" id="dismiss" class="btn btn-default" data-dismiss="modal">Dismiss</button>
+                                                <button type="button" data-dismiss="modal" id="live" class="btn btn-primary">Save changes</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
 
 
 
@@ -364,17 +403,17 @@
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                                                 </button>
-                                                <h4 class="modal-title" id="myModalLabel">Add student</h4>
+                                                <h4 class="modal-title" id="myModalLabel">Add User</h4>
                                             </div>
                                             <div class="modal-body">
                                                
                                 <div class="x_content">
                                     <br />
-                                    <form method="POST" id="formStudent" enctype="multipart/form-data" class="form-horizontal form-label-left input_mask">
+                                    <form method="POST"  id="former" enctype="multipart/form-data" class="form-horizontal form-label-left input_mask">
                                       
-                                        <div class="col-md-4 col-md-5-12 col-xs-12 form-group has-feedback">
+                                        <div style="height: 200px" class="col-md-4 col-md-5-12 col-xs-12 form-group has-feedback">
                                            
-                                            <img alt="upload photo" id="iClick" src="theme/images/user.png" width="200" height="200"/>
+                                            <img alt="upload photo" id="iClick" src="static/theme/images/icons.png" width="200" height="200" />
                                             <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
                                             <input id="fClick" class="btn" name="file" type="file"/>
                                         </div>
@@ -384,32 +423,32 @@
 
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                              
-                                            <input type="text" required placeholder="User Name" name="firstName" class="form-control has-feedback-left" id="firstName" >
+                                            <input type="text" required placeholder="User Name" name="username" class="form-control has-feedback-left" id="firstName" >
                                             <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                              
-                                              <input type="password" placeholder="Password" name="lastName" class="form-control has-feedback-left" id="lastName" >
+                                              <input type="password" placeholder="Password" name="password" class="form-control has-feedback-left" id="lastName" >
                                             <span class="fa fa-lock form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                              
-                                              <input type="text" name="middleName" required placeholder="First Name" class="form-control has-feedback-left" id="middleName" >
+                                              <input type="text" name="firstname" required placeholder="Contact number" class="form-control has-feedback-left" id="contact" >
                                             <span class="fa fa-user-md form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         
                                          
                                            <div style="display:none;" class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                               
-                                             <input type="text" name="url" required placeholder="Email" class="form-control has-feedback-left" id="url" >
+                                             <input type="email" name="status" required value="staff" class="form-control has-feedback-left" id="url" >
                                             <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                         <div class="col-md-4 col-md-5-12 col-xs-12 form-group has-feedback"></div>
                                         
                                          <div class="col-md-6 col-sm-6 col-xs-12  form-group has-feedback">
                                              
-                                             <input type="password" name="password" required placeholder="Enter password" class="form-control has-feedback-left" id="password" >
-                                            <span class="fa fa-key form-control-feedback left" aria-hidden="true"></span>
+                                             <input type="email" name="email" required placeholder="Email" class="form-control has-feedback-left" id="password" >
+                                            <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
                                             <br/>  
                                             Male:
                                             <input type="radio"  class="flat " name="gender" id="genderM" value="M"  required /> Female:
@@ -426,7 +465,7 @@
                                         <div class="form-group">
                                             <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
                                                 <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
-                                                <button type="button" id="submitS" class="btn btn-success">Submit</button>
+                                                <button type="button" id="addStaff" class="btn btn-success">Submit</button>
                                             </div>
                                         </div>
    
@@ -471,15 +510,15 @@
                                     <br />
                                     <form method="POST" id="formProduct" enctype="multipart/form-data" class="form-horizontal form-label-left input_mask">
                                       
-                                        <div class="col-md-4 col-md-5-12 col-xs-12 form-group has-feedback">
+                                        <div style="height: 200px" class="col-md-4 col-md-5-12 col-xs-12 form-group has-feedback">
                                            
-                                            <img alt="upload photo" id="iClick" src="theme/images/user.png" width="200" height="200"/>
+                                            <img alt="upload photo" id="iClicks" src="theme/images/user.png" width="200" height="200"/>
                                             <span class="fa fa-graduation-cap form-control-feedback left" aria-hidden="true"></span>
-                                            <input id="fClick" class="btn" name="file" type="file"/>
+                                            <input id="fClicks" class="btn" name="file" type="file"/>
                                         </div>
                                           
                                       
-                                        
+                                         
 
                                         <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                              
@@ -488,7 +527,7 @@
                                         </div>
                                           <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
                                              
-                                              <input type="text" placeholder="Ref Id" name="refId" class="form-control has-feedback-left" id="lastName" >
+                                              <input type="text" placeholder="Ref Id" name="refId" class="form-control has-feedback-left" id="refId" >
                                             <span class="fa fa-lock form-control-feedback left" aria-hidden="true"></span>
                                         </div>
                                          
@@ -501,7 +540,7 @@
                                         <div class="col-md-4 col-md-5-12 col-xs-12 form-group has-feedback"></div>
                                         
                                          <div class="col-md-6 col-sm-6 col-xs-12  form-group has-feedback">
-                                             <textarea name="description" cols="30" rows="3" class="form-control" placeholder="Short description about product"></textarea>
+                                             <textarea name="description" id="description" cols="30" rows="3" class="form-control" placeholder="Short description about product"></textarea>
                                             
                                          </div>
 
@@ -753,7 +792,7 @@
                                                
                                                 <th >S/N</th>
                                                 <th>Id </th>
-                                                <th>Title</th>
+                                                <th>User</th>
                                                 <th>Description</th>
                                              
                                                 <th>Status</th>

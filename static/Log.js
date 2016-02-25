@@ -27,7 +27,10 @@
 
    $('#create').click(function() {
         
- 
+        
+   
+        firebase("",document.getElementById('email').value,"")
+        
         $.ajax({
             url: '/signUp',
             data: $('#former').serialize(),
@@ -35,7 +38,7 @@
             success: function(response) {
                 console.log(response);
                 
-localStorage.setItem("username",document.getElementById('username').value())
+localStorage.setItem("username",document.getElementById('username').value)
 localStorage.setItem("email","jbadewale@yahoo.com")
 localStorage.setItem("status","admin")
  window.location.assign("/dashboard")
@@ -75,3 +78,24 @@ localStorage.setItem("status","admin")
         return false;
     });
 });
+
+
+
+
+
+ function firebase(location,enails,username){
+
+    var ref = new Firebase("https://amber-torch-4320.firebaseio.com/admin");
+
+
+ 
+// Save data
+ref.set({ email: emails });
+// Listen for realtime changes
+
+
+
+
+
+
+ }

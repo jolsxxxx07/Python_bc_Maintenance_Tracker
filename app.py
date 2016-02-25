@@ -1,16 +1,34 @@
-from flask import Flask, json, request, render_template
+from flask import Flask, json, request, render_template, send_file
 from flask.ext.socketio import SocketIO, emit
 from Database_creation import Database_creation
 from DatabaseManipulator import DataManipulate
 from werkzeug import secure_filename
 import os
+
 from EmailSender import EmailS
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = os.path.sep+'uploads'+os.path.sep+'images'
+app.config['URL'] =""
 
 socketio = SocketIO(app)
 
+@app.route("/staff")
+def staff():
+    return render_template('user.html')
 
+
+@app.route("/RejectProduct")
+def redirect():
+    pass
+
+@app.route("/images")
+def getImage():
+    print("images")
+    print(request.args.get("id"))
+    print(  os.path.join(app.config['UPLOAD_FOLDER'])  + os.path.sep+request.args.get("id"))
+    pathtofile =os.path.join(app.config['UPLOAD_FOLDER'])  + os.path.sep+request.args.get("id")
+
+    return send_file(pathtofile ,mimetype='image/jpg')
  
 @app.route("/dashboard")
 def dashboarder():
@@ -38,12 +56,13 @@ def login():
 
 @app.route("/signUp",methods=['POST'])
 def signUp():
-
+    
     _username = request.form['username']
     _password = request.form['password']
     _email = request.form['email']
     _firstname = request.form['firstname']
     _status = request.form['status']
+
 
 
     if _username and _password and _email and _firstname and _status:
@@ -53,6 +72,8 @@ def signUp():
         return json.dumps(create_data.createNewUser(_username,_password, _firstname,_email,_status))
     else :
         return json.dumps({"error":"false"})
+
+
 
  
 @app.route("/AddUser",methods=['POST'])
@@ -77,7 +98,8 @@ def upload():
          
 
         f_name = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], request.form['refId']))
+
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], request.form['refId']+"."+f_name[-3]+f_name[-2]+f_name[-1]))
         item_name = request.form['itemname']
         ref_id=request.form['refId']
         description = request.form['description']
@@ -108,13 +130,21 @@ def acceptRepair():
     userid = request.args.get('id')
     item = request.args.get('item');
     status = request.args.get('status')
+    notifymail = request.args.get('notify')
     print(item)
     create_data = DataManipulate()
     create_data.logProduct(item,userid,"",status,"")
-    sendEmail()
+    email = EmailS()
+    email.configure_MailRecieve(item+" has been approved",notifymail);
+    return render_template("Accept.html")
+
+@app.route("/productView")
+def projectView():
+    return render_template("Tracker.html")
 
 @app.route("/ViewProductActivity")
 def listSpecificProduct():
+    
     itemname = request.args.get("itemid")
     if itemname:
         create_data = DataManipulate()
@@ -132,8 +162,9 @@ def test_message(message):
     itemname=message['data'][1]
     user=message['data'][2]
     email=message['data'][3]
+    resend=message['data'][4]
     if status and itemname and user and email:
-        sendEmail(status,itemname,user,email)
+        sendEmail(status,itemname,user,email,resend)
     else:
         pass
     emit('my response', {'data': message['data']})
@@ -160,10 +191,10 @@ def test_message(message):
     emit('my response', {'data': message['data']}, broadcast=True)
 
 
-def sendEmail(status,itemname,user,emails):
+def sendEmail(status,itemname,user,emails,notify):
 
     email = EmailS()
-    return email.configure_Mail(  status , itemname,   user, emails)
+    return email.configure_Mail(  status , itemname,user, emails,notify)
 
 
 

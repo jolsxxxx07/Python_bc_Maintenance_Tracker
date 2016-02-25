@@ -1,0 +1,16 @@
+colorama==0.3.6
+eventlet==0.18.4
+Flask==0.10.1
+Flask-SocketIO==2.1
+gevent-websocket==0.9.5
+greenlet==0.4.9
+itsdangerous==0.24
+Jinja2==2.8
+MarkupSafe==0.23
+python-engineio==0.8.8
+python-socketio==1.0
+requests==2.9.1
+six==1.10.0
+virtualenv==14.0.6
+virtualenvwrapper-win==1.2.1
+Werkzeug==0.11.4

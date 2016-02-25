@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Sts! | </title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link   href="{{ url_for('static', filename='theme/css/bootstrap.min.css') }}"  rel="stylesheet">
+<link  href="{{ url_for('static', filename='theme/css/select/select2.min.css') }}"  rel="stylesheet">
+    
+    <linkf href="{{ url_for('static', filename='theme/font/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link  href="{{ url_for('static', filename='theme/css/animate.min.css') }}" rel="stylesheet">
+   <link rel="stylesheet"  href="{{ url_for('static', filename='theme/css/switchery/switchery.min.css') }}"  />
+    
+    <!-- Custom styling plus plugins -->
+    <link href="{{ url_for('static', filename='theme/css/custom.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='theme/css/maps/jquery-jvectormap-2.0.1.css') }}"  />
+    <link   href="{{ url_for('static', filename='theme/css/icheck/flat/green.css') }}" rel="stylesheet">
+    <link   href="{{ url_for('static', filename='theme/css/floatexamples.css') }}" rel="stylesheet" />
+
+    
+      <script src="{{ url_for('static', filename='theme/js/jquery.min.js') }}"  type="text/javascript" ></script>
+
+      <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+
+    <!--[if lt IE 9]>
+        <script src="../assets/js/ie8-responsive-file-warning.js"></script>
+        <![endif]-->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+
+<body class="nav-md">
+
+    <div class="container body">
+
+
+        <div class="main_container">
+
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Starks!</span></a>
+                    </div>
+                    <div class="clearfix"></div>
+
+
+                    <!-- menu prile quick info -->
+                    <div class="profile">
+                        <div class="profile_pic">
+                            <img src="theme/images/img.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Welcome,</span>
+                            <h2>Adewale Jolaade</h2>
+                        </div>
+                    </div>
+                    <!-- /menu prile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+
+                        <div class="menu_section">
+                            <h3>General</h3>
+                            <ul class="nav side-menu">
+                                <li style="display:none"><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a href="index.html">Dashboard</a>
+                                        </li>
+                                        <li><a href="index2.html">Dashboard2</a>
+                                        </li>
+                                        <li><a href="index3.html">Dashboard3</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                               <li style="display:none"><a><i class="fa fa-users"></i> Candidates <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a id="studReg">Register Candidate</a>
+                                            <div class="modal fade bs-example-modal-lg" id="studR" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Register Candidate for exam</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                            </div>
+                                        </li>
+                                         <li><a id="unRegCan">Unregister Candidate</a>
+                                        <div class="modal fade bs-example-modal-lg" id="unregR" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel">Unregister Candidate for exam</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                
+                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                            
+                                        </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li style="display:none"><a><i class="fa fa-graduation-cap"></i> Exam <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu" style="display: none">
+                                        <li><a id="startExam" >Start Exam</a>
+                                             <div id="examSt" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel2">Start Exam</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-group">
+                                                
+                                         <div class="form-group">
+                                              <div class="col-md-6 col-sm-6 col-xs-12">
+                                                <input type="text" readonly="" id="first-name" placeholder="Duration" required="required" class="form-control has-feedback-left">
+                                                 <span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>
+                                            </div>
+                                              
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" readonly=""  id="inputSuccess3"  class="form-control col-md-7 col-xs-12"  placeholder="Start time">
+                                            <span class="fa fa-clock-o form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+
+                                        <div class="col-md-6 col-sm-6 col-xs-12 ">
+                                            <input type="text"  readonly="" class="form-control has-feedback-left" id="inputSuccess4" placeholder="Candidates">
+                                            <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                                        </div>
+
+                                        <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                                            <input readonly="" type="text" class="form-control" id="inputSuccess5" placeholder="Time">
+                                            <span class="fa fa-clock-o form-control-feedback right" aria-hidden="true"></span>
+                                        </div>
+                                             <button class="btn btn-success form-control label">Start Exam</button>
+                                                </div>
+                                             </div>
+                                            <div class="modal-footer">
+                                               </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                        </li>
+                                        
+                                          <li><a id="edExam" >Edit Exam</a>
+                                               <div id="eExam" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel2">Edit Exam</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                              
+                                        </li>
+                                           <li><a id="stopExam" >Stop Exam</a>
+                                               <div id="sExam" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                                </button>
+                                                <h4 class="modal-title" id="myModalLabel2">Cancel Exam</h4>
+                                            </div>
+                                            
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Cancel Exam</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /sidebar menu -->
+
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+
+                <div class="nav_menu">
+                    <nav class="" role="navigation">
+                        <div class="nav toggle">
+                            <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                        </div>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="theme/images/img.jpg" alt="">Jolaade Adewale
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                                    <li><a href="javascript:;">  Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span class="badge bg-red pull-right">50%</span>
+                                            <span>Settings</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:;">Help</a>
+                                    </li>
+                                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li role="presentation" class="dropdown">
+                                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span class="badge bg-green">6</span>
+                                </a>
+                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+                                    <li>
+                                        <a>
+                                            <span class="image">
+                                        <img src="images/img.jpg" alt="Profile Image" />
+                                    </span>
+                                            <span>
+                                        <span>John Smith</span>
+                                            <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where... 
+                                    </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image">
+                                        <img src="images/img.jpg" alt="Profile Image" />
+                                    </span>
+                                            <span>
+                                        <span>John Smith</span>
+                                            <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where... 
+                                    </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image">
+                                        <img src="images/img.jpg" alt="Profile Image" />
+                                    </span>
+                                            <span>
+                                        <span>John Smith</span>
+                                            <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where... 
+                                    </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a>
+                                            <span class="image">
+                                        <img src="images/img.jpg" alt="Profile Image" />
+                                    </span>
+                                            <span>
+                                        <span>John Smith</span>
+                                            <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                        Film festivals used to be do-or-die moments for movie makers. They were where... 
+                                    </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div class="text-center">
+                                            <a>
+                                                <strong>See All Alerts</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+            <!-- /top navigation -->
+
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+
+                <br />
+                <div class="">
+
+                    <div class="row top_tiles">
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-user"></i>
+                                </div>
+                                
+                                <img src="" id="images" height="100" width="120"/>
+
+                                
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-comments-o"></i>
+                                </div>
+                                <div class="count" id="staff">179</div>
+
+                                <h3>Staff </h3>
+                                <p>Amount of staff worked on product</p>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-sort-amount-desc"></i>
+                                </div>
+                                <div class="count" id="main">12 days</div>
+
+                                <h3>Maintenance</h3>
+                                <p>Amount fo maintenace</p>
+                            </div>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <div class="tile-stats">
+                                <div class="icon"><i class="fa fa-check-square-o"></i>
+                                </div>
+                                <div id="repair" class="count">179</div>
+
+                                <h3>Repair</h3>
+                                <p>Amount of repairs</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Activity summary <small>Activity progress</small></h2>
+                                    <div class="filter">
+                                        <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                                            <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="col-md-9 col-sm-12 col-xs-12">
+                                        <div class="demo-container" style="height:280px">
+                                            <div id="placeholder33x" class="demo-placeholder"></div>
+                                        </div>
+                                        <div class="tiles">
+                                            <div class="col-md-4 tile">
+                                                <span>Total Sessions</span>
+                                                <h2>231,809</h2>
+                                                <span class="sparkline11 graph" style="height: 160px;">
+                                        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                    </span>
+                                            </div>
+                                            <div class="col-md-4 tile">
+                                                <span>Total Revenue</span>
+                                                <h2>$231,809</h2>
+                                                <span class="sparkline22 graph" style="height: 160px;">
+                                        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                    </span>
+                                            </div>
+                                            <div class="col-md-4 tile">
+                                                <span>Total Sessions</span>
+                                                <h2>231,809</h2>
+                                                <span class="sparkline11 graph" style="height: 160px;">
+                                        <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                    </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-3 col-sm-12 col-xs-12">
+                                        <div>
+                                            <div class="x_title">
+                                                <h2>Last 5 activities</h2>
+                                                <ul class="nav navbar-right panel_toolbox">
+                                                    <li><a href="#"><i class="fa fa-chevron-up"></i></a>
+                                                    </li>
+                                                    <li class="dropdown">
+                                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="#">Settings 1</a>
+                                                            </li>
+                                                            <li><a href="#">Settings 2</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="#"><i class="fa fa-close"></i></a>
+                                                    </li>
+                                                </ul>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <ul class="list-unstyled top_profiles scroll-view">
+                                                <li class="media event">
+                                                    <a class="pull-left border-aero profile_thumb">
+                                                        <i class="fa fa-user aero"></i>
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <a class="title" href="#">Ms. Mary Jane</a>
+                                                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                                        <p> <small>12 Sales Today</small>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li class="media event">
+                                                    <a class="pull-left border-green profile_thumb">
+                                                        <i class="fa fa-user green"></i>
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <a class="title" href="#">Ms. Mary Jane</a>
+                                                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                                        <p> <small>12 Sales Today</small>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li class="media event">
+                                                    <a class="pull-left border-blue profile_thumb">
+                                                        <i class="fa fa-user blue"></i>
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <a class="title" href="#">Ms. Mary Jane</a>
+                                                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                                        <p> <small>12 Sales Today</small>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li class="media event">
+                                                    <a class="pull-left border-aero profile_thumb">
+                                                        <i class="fa fa-user aero"></i>
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <a class="title" href="#">Ms. Mary Jane</a>
+                                                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                                        <p> <small>12 Sales Today</small>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li class="media event">
+                                                    <a class="pull-left border-green profile_thumb">
+                                                        <i class="fa fa-user green"></i>
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <a class="title" href="#">Ms. Mary Jane</a>
+                                                        <p><strong>$2300. </strong> Agent Avarage Sales </p>
+                                                        <p> <small>12 Sales Today</small>
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="x_panel">
+                                <div class="x_title">
+                                    <h2>Weekly Summary <small>Activity shares</small></h2>
+                                    <ul class="nav navbar-right panel_toolbox">
+                                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li><a href="#">Settings 1</a>
+                                                </li>
+                                                <li><a href="#">Settings 2</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                        </li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+
+                                    <div class="row" style="border-bottom: 1px solid #E0E0E0; padding-bottom: 5px; margin-bottom: 5px;">
+                                        <div class="col-md-7" style="overflow:hidden;">
+                                            <span class="sparkline_one" style="height: 160px; padding: 10px 25px;">
+                                    <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
+                                </span>
+                                            <h4 style="margin:18px">Candidates progress</h4>
+                                        </div>
+
+                                        <div class="col-md-5">
+                                            <div class="row" style="text-align: center;">
+                                                <div class="col-md-4">
+                                                    <canvas id="canvas1i" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                                                    <h4 style="margin:0">Attendance rate</h4>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <canvas id="canvas1i2" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                                                    <h4 style="margin:0">Pass rate</h4>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <canvas id="canvas1i3" height="110" width="110" style="margin: 5px 10px 10px 0"></canvas>
+                                                     <h4 style="margin:0">Completion rate</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                   
+                    </div>
+         
+    
+                <!-- footer content -->
+                <footer>
+                    <div class="">
+                        <p class="pull-right">Starks! a Bootstrap 3 template by <a>Kimlabs</a>. |
+                            <span class="lead"> <i class="fa fa-paw"></i> Starks tech!</span>
+                        </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </footer>
+                <!-- /footer content -->
+
+            </div>
+            <!-- /page content -->
+        </div>
+
+
+    </div>
+
+    <div id="custom_notifications" class="custom-notifications dsp_none">
+        <ul class="list-unstyled notifications clearfix" data-tabbed_notifications="notif-group">
+        </ul>
+        <div class="clearfix"></div>
+        <div id="notif-group" class="tabbed_notifications"></div>
+    </div>
+
+    
+      <script src="{{ url_for('static', filename='theme/js/bootstrap.min.js') }}"  type="text/javascript" ></script>
+
+
+    
+      <script src="{{ url_for('static', filename='theme/js/nicescroll/jquery.nicescroll.min.js') }}"  type="text/javascript" ></script>
+
+
+    <!-- chart js -->
+    
+     <script src="{{ url_for('static', filename='theme/js/chartjs/chart.min.js') }}"  type="text/javascript" ></script>
+
+    <!-- bootstrap progress js -->
+    <script src=""></script>
+     <script src="{{ url_for('static', filename='theme/js/progressbar/bootstrap-progressbar.min.js') }}"  type="text/javascript" ></script>
+
+
+    <!-- icheck -->
+    <script src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/icheck/icheck.min.js') }}"  type="text/javascript" ></script>
+
+    <!-- daterangepicker -->
+    <script type="text/javascript" src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/moment.min2.js') }}"  type="text/javascript" ></script>
+
+    <script type="text/javascript" src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/datepicker/daterangepicker.js') }}"  type="text/javascript" ></script>
+
+    <!-- sparkline -->
+    <script src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/sparkline/jquery.sparkline.min.js') }}"  type="text/javascript" ></script>
+
+
+   
+    <!-- flot js -->
+    <!--[if lte IE 8]><script type="text/javascript" src="js/excanvas.min.js"></script><![endif]-->
+    <script type="text/javascript" src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/flot/jquery.flot.js') }}"  type="text/javascript" ></script>
+
+    <script type="text/javascript" src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/flot/jquery.flot.pie.js') }}"  type="text/javascript" ></script>
+
+    <script type="text/javascript" src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/flot/jquery.flot.orderBars.js') }}"  type="text/javascript" ></script>
+
+    <script type="text/javascript" src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/flot/jquery.flot.time.min.js') }}"  type="text/javascript" ></script>
+
+    <script type="text/javascript" src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/flot/date.js') }}"  type="text/javascript" ></script>
+
+    <script type="text/javascript" src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/flot/jquery.flot.spline.js') }}"  type="text/javascript" ></script>
+
+    <script type="text/javascript" src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/flot/jquery.flot.stack.js') }}"  type="text/javascript" ></script>
+
+    <script type="text/javascript" src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/flot/curvedLines.js') }}"  type="text/javascript" ></script>
+
+    <script type="text/javascript" src=""></script>
+    <script src="{{ url_for('static', filename='theme/js/flot/jquery.flot.resize.js') }}"  type="text/javascript" ></script>
+
+    
+    <!-- flot -->
+     <script src="{{ url_for('static', filename='Activity.js') }}"  type="text/javascript" ></script>
+ 
+    </script>
+    <!-- /flot -->
+    <!--  -->
+    <script>
+       
+    </script>
+    <!-- -->
+    <!-- datepicker -->
+    <script type="text/javascript">
+       
+    </script>
+    <!-- /datepicker -->
+</body>
+
+</html>

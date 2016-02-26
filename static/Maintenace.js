@@ -31,7 +31,8 @@ if(localStorage.getItem("status") == "staff"){
   var textmess = data.val().textmessage;
 
   var getvalues = textmess.split(" ");
-  alert(getvalues);
+ 
+
   
   
 
@@ -41,17 +42,18 @@ $("#smallModal").modal();
   $("#live").click(function (){
 var  userbase = new Firebase("https://amber-torch-4320.firebaseio.com/"+getvalues[5]+"")
 
- userbase.set({ textmessage: "Approval for "+getvalues[7]+" granted" });
+ userbase.set({ textmessage: "Approval for "+getvalues[9]+" granted" });
 
 
 
 
   })
+     
 
 $("#dismiss").click(function (){
 var  userbase = new Firebase("https://amber-torch-4320.firebaseio.com/"+getvalues[5]+"")
 
- userbase.set({ textmessage: "Request for "+getvalues[7]+" Dismissed "+document.getElementById("sendNote").value });
+ userbase.set({ textmessage: "Request for "+getvalues[9]+" Dismissed "+document.getElementById("sendNote").value });
  
 
 
@@ -65,7 +67,7 @@ var  userbase = new Firebase("https://amber-torch-4320.firebaseio.com/"+getvalue
 
 
 
-
+     
 
  
 	$("#next").hide();
@@ -78,6 +80,7 @@ var  userbase = new Firebase("https://amber-torch-4320.firebaseio.com/"+getvalue
 	document.getElementById("vu").addEventListener("click", viewuser,false);
 	document.getElementById("submitFile").addEventListener("click",submitF,false);
   document.getElementById("addStaff").addEventListener("click",addStaffs,false)
+  
   
   
 
@@ -189,7 +192,7 @@ function listenformessage(){
 
   ref.on("value", function(data) {
   var mess = data.val().message;
-  alert("Mmessage is " + mess);
+  
 
 });
 }
@@ -197,15 +200,22 @@ function listenformessage(){
 
 function addStaffs(){
  
+ 
+ usernames = document.getElementById("username").value;
+ passwords = document.getElementById("password").value;
+
+ alert(usernames)
+ alert(passwords);
+ 
+
    $.ajax({
             url: '/signUp',
             data: $('#former').serialize(),
             type: 'POST',
             success: function(response) {
                 console.log(response);
-                alert("success");
-
-//localStorage.setItem("username",document.getElementById('username').value())
+                
+//localStorage.setItem("username",document.getElementById('username').value)
 //localStorage.setItem("email","jbadewale@yahoo.com")
 //localStorage.setItem("status","admin")
  //window.location.assign("/dashboard")
@@ -281,7 +291,7 @@ function getProducts(){
 
             },
             error: function(error) {
-            	alert("error")
+            
                 console.log(error);
             }
         });
@@ -320,11 +330,11 @@ if(  $('#formProduct').find('input[type="file"]')[0].files[0] === null){
             $.each(other_data, function(key, input) {
                 fd.append(input.name, input.value);
             });
-            alert("no error");
+            
            send(fd)
           function send(fd){
  
-          alert(fd)  
+           
  	 $.ajax({
 
             url: '/Upload', 
@@ -336,7 +346,7 @@ if(  $('#formProduct').find('input[type="file"]')[0].files[0] === null){
             success: function(response) {
                 console.log(response);
                 
-  alert("succes")
+  
   $("#closeM").trigger("click");
   getProducts()
 
@@ -345,7 +355,7 @@ if(  $('#formProduct').find('input[type="file"]')[0].files[0] === null){
 
             },
             error: function(error) {
-            	alert("error")
+            	
                 console.log(error);
             }
         });
@@ -374,8 +384,7 @@ $("#viewProduct").modal()
             type: 'GET',
             success: function(response) {
                 console.log(response);
-                
-  alert("succes")
+  
   var s = response;
    s = search("\"","")
     s = search("\'","")
@@ -416,7 +425,7 @@ $("#viewProduct").modal()
 
             },
             error: function(error) {
-              alert("error")
+            
                 console.log(error);
             }
         });
@@ -434,7 +443,7 @@ function viewuser(){
 
  $(document).ready(function(){
     
-    alert(document.domain)
+  
 
     
 });
@@ -451,14 +460,14 @@ function vi(){
             success: function(response) {
                 console.log(response);
                 
-  alert("succes")
-  alert(response)
+  
+  
  //window.location.assign("/dashboard")
 
 
             },
             error: function(error) {
-              alert("error")
+              
                 console.log(error);
             }
         });
@@ -482,11 +491,10 @@ function cl(e){
 var socket
 
 function connectSocket(){
-  alert("in socket");
+ 
   socket = io.connect('http://' + document.domain + ':' + location.port + '/test');
     socket.on('my response', function(msg) {
-      alert("message in")
-      alert(msg.data)
+      
 
         //$('#log').append('<p>Received: ' + msg.data + '</p>');
     });

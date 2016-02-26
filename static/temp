@@ -9,7 +9,7 @@ $(document).ready(function () {
 
 
 
-        alert("ah ahn")
+       
        alert(localStorage.getItem("product"))
 
         

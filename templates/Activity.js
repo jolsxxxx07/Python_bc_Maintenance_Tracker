@@ -3,7 +3,7 @@ $(document).ready(function () {
 
 
 
-        alert("ah ahn")
+        
        alert(localStorage.getItem("product"))
 
         
@@ -17,14 +17,14 @@ $(document).ready(function () {
             success: function(response) {
                 console.log(response);
                 
-  alert("succes")
-  alert(response)
+   
+   
  //window.location.assign("/dashboard")
 
 
             },
             error: function(error) {
-              alert("error")
+           
                 console.log(error);
             }
         });

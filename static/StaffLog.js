@@ -1,9 +1,14 @@
  $(function() {
     $('#logger').click(function() {
- 
+                   
                     localStorage.setItem("username",document.getElementById("username").value);
                     
                     localStorage.setItem("status","staff")
+
+                    alert(document.getElementById("username").value);
+                    alert(document.getElementById("password").value);
+
+                   
         $.ajax({
             url: '/login',
             data: $('form').serialize(),

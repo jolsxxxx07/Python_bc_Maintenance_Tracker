@@ -28,7 +28,9 @@ def getImage():
     print(  os.path.join(app.config['UPLOAD_FOLDER'])  + os.path.sep+request.args.get("id"))
     pathtofile =os.path.join(app.config['UPLOAD_FOLDER'])  + os.path.sep+request.args.get("id")
 
-    return send_file(pathtofile ,mimetype='image/jpg')
+    return send_file(pathtofile ,mimetype='image/PNG')
+    
+
  
 @app.route("/dashboard")
 def dashboarder():
@@ -47,7 +49,7 @@ def login():
     _username = request.form['username']
     _password = request.form['password']
 
-    if _username and _password:
+    if _username and _
         create_data = DataManipulate()
 
         return json.dumps(create_data.getUser(_username,_password))

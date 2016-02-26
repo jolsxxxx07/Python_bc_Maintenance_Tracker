@@ -8,10 +8,12 @@
             success: function(response) {
                 console.log(response);
                 if(response ==1){
-                    window.location.assign("/dashboard")
-                    localStorage.setItem("username",document.getElementById('username').value())
+                    alert("yeah")
+                    localStorage.setItem("username",document.getElementById('username').value )
                     localStorage.setItem("email","jbadewale@yahoo.com")
                     localStorage.setItem("status","admin")
+                    window.location.assign("/dashboard")
+                    
                 }
                 else{
                     alert("Incorrect username or password")

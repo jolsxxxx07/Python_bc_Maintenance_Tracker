@@ -66,6 +66,8 @@ def addUser():
  	else:
  		return json.dumps()
 
+
+
 @app.route("/Upload",methods=['POST'])
 def upload():
     UPLOAD_FOLDER = '/path/to/the/uploads'

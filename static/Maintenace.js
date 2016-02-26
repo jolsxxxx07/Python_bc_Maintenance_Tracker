@@ -17,11 +17,35 @@ function start(){
 	document.getElementById("au").addEventListener("click", adduser,false);
 	document.getElementById("vu").addEventListener("click", viewuser,false);
 	document.getElementById("submitFile").addEventListener("click",submitF,false);
+  document.getElementById("submitS").addEventListener("click",sub,false);
 
 
  
 }
 
+
+function sub(){
+          $.ajax({
+            url: '/signUp',
+            data: $('#formUser').serialize(),
+            type: 'POST',
+            success: function(response) {
+                console.log(response);
+                
+                alert(document.getElementById('email').value);
+                
+localStorage.setItem("username",document.getElementById('username').value)
+localStorage.setItem("email",document.getElementById('email').value)
+localStorage.setItem("status","staff")
+ window.location.assign("/dashboard")
+
+
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+}
  
 function getProducts(){
 

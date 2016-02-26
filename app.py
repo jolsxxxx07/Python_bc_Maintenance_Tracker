@@ -30,6 +30,7 @@ def getImage():
 
     return send_file(pathtofile ,mimetype='image/PNG')
     
+    
 
  
 @app.route("/dashboard")
@@ -49,7 +50,7 @@ def login():
     _username = request.form['username']
     _password = request.form['password']
 
-    if _username and _
+    if _username and _password:
         create_data = DataManipulate()
 
         return json.dumps(create_data.getUser(_username,_password))

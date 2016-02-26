@@ -4,10 +4,11 @@
 
 
 
+  
 
 
 
-
+ 
 
 
 
@@ -24,8 +25,7 @@ $(document).ready(function () {
 
 
      
-
-
+  
 
           $.ajax({
 
@@ -51,6 +51,8 @@ $(document).ready(function () {
         return target.split(search).join(replacement);
     }
   
+
+  alert("here")
   var products = s.split(",")
 
     staff = 0;
@@ -60,15 +62,23 @@ $(document).ready(function () {
    var value = "";
    var dated = ""
   
+   
   var tableCreator = ""
   var sn= 0;
   var id = "";
   var accumulator = "";
   var URL = location.protocol +"//"+ location.host;
      localStorage.setItem("URL",URL);
-     
+    
+     ima = localStorage.getItem("product").trim();
 
-  document.getElementById("images").src = localStorage.getItem("URL")+"/images?id=000005.PNG"
+     imagees = ima+".PNG";
+
+   
+  document.getElementById("images").src = localStorage.getItem("URL")+"/images?id="+imagees+"";
+
+  
+
   for (var product = 0; product < products.length; product+=5){
      id=products[product];
      
